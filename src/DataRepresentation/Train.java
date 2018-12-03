@@ -6,10 +6,10 @@ public class Train {
         if(shapeType == null){
             return null;
         }
-        if(shapeType.equalsIgnoreCase("CIRCLE")){
+        if(shapeType.equalsIgnoreCase("Wagon")){
             return new Wagon();
 
-        } else if(shapeType.equalsIgnoreCase("RECTANGLE")){
+        } else if(shapeType.equalsIgnoreCase("Locomotive")){
             return new Locomotive();
 
         }
