@@ -2,6 +2,9 @@ package DataRepresentation;
 
 public class Locomotive implements RollingComponent{
 
-    private int power;
-    private int pull;
+
+    @Override
+    public void draw() {
+        System.out.println("Inside Square::draw() method.");
+    }
 }

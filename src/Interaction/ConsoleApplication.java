@@ -1,4 +1,4 @@
 package Interaction;
 
-public class ConsoleApplication {
+public class ConsoleApplication implements Application {
 }

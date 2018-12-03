@@ -1,4 +1,4 @@
 package Interaction;
 
-public class VisualApplication {
+public class VisualApplication implements Application {
 }
