@@ -1,7 +1,9 @@
 package Application;
 
+import DataRepresentation.TrainFactory;
+
 public class TrainService implements TrainRepositoryInterface, TrainServiceInterface {
 
-    public DataRepresentation.Train train;
+    public TrainFactory train;
     public TrainRepositoryInterface trainRepo;
 }

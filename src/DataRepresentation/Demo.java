@@ -3,7 +3,7 @@ package DataRepresentation;
 public class Demo {
 
     public static void main(String[] args) {
-        Train shapeFactory = new Train();
+        TrainFactory shapeFactory = new TrainFactory();
 
         //get an object of Circle and call its draw method.
         RollingComponent shape1 = shapeFactory.getShape("Wagon");

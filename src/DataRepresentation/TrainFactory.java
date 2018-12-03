@@ -1,6 +1,6 @@
 package DataRepresentation;
 
-public class Train {
+public class TrainFactory {
 
     public RollingComponent getShape(String shapeType){
         if(shapeType == null){
