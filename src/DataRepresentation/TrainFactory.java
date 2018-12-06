@@ -1,20 +1,42 @@
 package DataRepresentation;
 
+import java.util.ArrayList;
+
 public class TrainFactory {
 
-    public RollingComponent getShape(String shapeType){
-        if(shapeType == null){
-            return null;
+    private static ArrayList<RollingComponent> rollingComponents;
+
+    public TrainFactory() {
+    }
+
+    static {
+        TrainFactory.rollingComponents = new ArrayList<>();
+    }
+
+    public RollingComponent getTrainPart(String rollingComponentType, String id) {
+        RollingComponent trainpart = null;
+        switch (rollingComponentType) {
+            case "Cargo":
+                trainpart = new CargoWagon();
+                break;
+
+            case "FirstClass":
+                trainpart = new FirstClassWagon();
+                break;
+
+            case "SecondClass":
+                trainpart = new SecondClassWagon();
+                break;
         }
-        if(shapeType.equalsIgnoreCase("Wagon")){
-            return new Wagon();
-
-        } else if(shapeType.equalsIgnoreCase("Locomotive")){
-            return new Locomotive();
-
-        }
-
-        return null;
+        rollingComponents.add(trainpart);
+        return trainpart;
+    }
+    public static ArrayList<RollingComponent> getRollingComponents(){return rollingComponents;
     }
 
 }
+
+
+
+
+
