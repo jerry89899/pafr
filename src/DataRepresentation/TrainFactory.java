@@ -17,15 +17,19 @@ public class TrainFactory {
         RollingComponent trainpart = null;
         switch (rollingComponentType) {
             case "Cargo":
-                trainpart = new CargoWagon();
+                trainpart = new CargoWagon(id, "../res/wg3.png");
                 break;
 
             case "FirstClass":
-                trainpart = new FirstClassWagon();
+                trainpart = new FirstClassWagon(id, "../res/wg2.png");
                 break;
 
             case "SecondClass":
-                trainpart = new SecondClassWagon();
+                trainpart = new SecondClassWagon(id, "../res/wg1.png");
+                break;
+
+            case "Locomotive":
+                trainpart = new Locomotive(id, "../res/train.png");
                 break;
         }
         rollingComponents.add(trainpart);
