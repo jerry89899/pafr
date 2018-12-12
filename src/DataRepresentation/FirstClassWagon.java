@@ -1,14 +1,25 @@
 package DataRepresentation;
 
-public class FirstClassWagon implements RollingComponent {
-    protected String image;
+public class FirstClassWagon extends RollingComponent implements Pullable {
 
-    public FirstClassWagon(String id, String image){
-        this.image = image;
+    private Locomotive pulledBy;
+
+    public FirstClassWagon(String id, Integer wheels, String image) {
+        super(id, wheels, image);
+    }
+
+
+    @Override
+    public Locomotive getPulledBy() {
+        return pulledBy;
     }
 
     @Override
-    public void draw() {
-        System.out.println("Inside FirstClassWagon::draw() method.");
+    public void setPulledby(Pullable locomotive) {
+    }
+
+    @Override
+    public String toString() {
+        return "FirstClassWagon";
     }
 }

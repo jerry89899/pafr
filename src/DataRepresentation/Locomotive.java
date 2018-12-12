@@ -1,18 +1,12 @@
 package DataRepresentation;
 
-public class Locomotive implements RollingComponent{
+import java.util.ArrayList;
 
-    protected String image;
-    protected String id;
+public interface Locomotive {
 
-    public Locomotive(String id, String image){
-        this.image = image;
-        this.id = id;
-    }
+    void addVehicle(Pullable component);
 
+    void removeVehicle(Pullable component);
 
-    @Override
-    public void draw() {
-        System.out.println("id = " + this.id + "\n" + this.image);
-    }
+    ArrayList<Pullable> getComponents();
 }
