@@ -30,8 +30,8 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
             //sent error message
         }
     }
-    public void DeleteTrain(int trainIndex){
-        boolean done = dbc.DeleteTrain(trainIndex);
+    public void DeleteTrain(String trainID){
+        boolean done = dbc.DeleteTrain(trainID);
         if (done == false){
             //sent error message
         }
