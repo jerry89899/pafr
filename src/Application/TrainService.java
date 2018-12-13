@@ -39,7 +39,7 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
     public void NewRollingComponent(RollingComponentType type, String Name, int seats){
 
     }
-    public void AddRollingComponentToTrain(String Name, int numSeats){
+    public void AddRollingComponentToTrain(String trainid, String rollingcomponentid){
         //check dat het geen locomotief is
 
     }
@@ -49,7 +49,7 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
     public ArrayList<TrainFactory> getTrains(){
         return dbc.GetAllTrains();
     }
-    ArrayList<RollingComponent> getRollingComponents(){
+    public ArrayList<RollingComponent> getRollingComponents(){
         return dbc.GetAllRollingComponents();
     }
 

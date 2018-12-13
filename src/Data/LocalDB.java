@@ -36,6 +36,8 @@ public class LocalDB implements DatabaseConnection {
         rollingComponents.add(rollingComponent);
     }
 
+
+
     private TrainFactory getTrainById(String id){
         TrainFactory found = null;
         for (TrainFactory t: trains){
@@ -43,6 +45,7 @@ public class LocalDB implements DatabaseConnection {
                 found = t;
             }
         }
-        return found
+        return found;
     }
+
 }
