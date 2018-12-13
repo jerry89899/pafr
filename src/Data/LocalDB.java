@@ -17,13 +17,32 @@ public class LocalDB implements DatabaseConnection {
     public void AddTrain(TrainFactory train){
         trains.add(train);
     }
-    public void DeleteTrain(int trainIndex){
-       trains.remove(trainIndex);
+
+    public boolean DeleteTrain(String id){
+       TrainFactory train = getTrainById(id);
+       if (train != null) {
+           trains.remove(train);
+           return true;
+       }
+       else{
+           return false;
+       }
+
    }
     public ArrayList<RollingComponent> GetAllRollingComponents(){
         return rollingComponents;
     }
     public void AddTrain(RollingComponent rollingComponent){
         rollingComponents.add(rollingComponent);
+    }
+
+    private TrainFactory getTrainById(String id){
+        TrainFactory found = null;
+        for (TrainFactory t: trains){
+            if (t.getId().equals(id) ){
+                found = t;
+            }
+        }
+        return found
     }
 }

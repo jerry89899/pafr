@@ -9,8 +9,8 @@ public interface DatabaseConnection {
 //    private ArrayList<Train> trains;
     ArrayList<TrainFactory> GetAllTrains();
     void AddTrain(TrainFactory t);
-    void DeleteTrain(int trainIndex);
-    public ArrayList<RollingComponent> GetAllRollingComponents();
-    public void AddTrain(RollingComponent rollingComponent);
+    boolean DeleteTrain(int trainIndex);
+    ArrayList<RollingComponent> GetAllRollingComponents();
+    void AddTrain(RollingComponent rollingComponent);
 
 }

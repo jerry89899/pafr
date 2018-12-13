@@ -2,6 +2,7 @@ package Application;
 
 import Data.DatabaseConnection;
 import Data.LocalDB;
+import DataRepresentation.Locomotive;
 import DataRepresentation.LocomotiveBasic;
 import DataRepresentation.RollingComponent;
 import DataRepresentation.TrainFactory;
@@ -19,24 +20,33 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
 
 
 
-    public void NewTrain(String name){//
-        TrainFactory t = TrainFactory.getTrainPart("LocomotiveBasic",20, name);
-        Train t = new Train(name);
-        dbc.AddTrain(t);
+    public void NewTrain(String name, RollingComponent locomotive){//
+        //
+        if (locomotive  instanceof Locomotive) {
+            TrainFactory t = new TrainFactory(name, locomotive);
+            dbc.AddTrain(t);
+
+        }else{
+            //sent error message
+        }
     }
     public void DeleteTrain(int trainIndex){
-
+        boolean done = dbc.DeleteTrain(trainIndex);
+        if (done == false){
+            //sent error message
+        }
     }
     public void NewRollingComponent(RollingComponentType type, String Name, int seats){
 
     }
     public void AddRollingComponentToTrain(String Name, int numSeats){
+        //check dat het geen locomotief is
 
     }
     public boolean DeleteRollingComponentFromTrain(int trainIndex, int rollingComponentIndex){
         return true;
     }
-    public ArrayList<Train> getTrains(){
+    public ArrayList<TrainFactory> getTrains(){
         return dbc.GetAllTrains();
     }
     ArrayList<RollingComponent> getRollingComponents(){

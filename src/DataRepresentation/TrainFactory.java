@@ -4,40 +4,20 @@ import java.util.ArrayList;
 
 public class TrainFactory {
 
-    private static ArrayList<RollingComponent> components;
+    private String id;
 
-    public TrainFactory() {
+    public TrainFactory(String id, RollingComponent locomotive){ // als je loco wilt verwijderen dan word de trein verwijderd.
+        ArrayList<RollingComponent> rollingComponents = new ArrayList<RollingComponent>();
+        rollingComponents.add(locomotive);
+        this.id = id;
+//        add locomotive to arraylist
+
+
     }
 
-    static {
-        TrainFactory.components = new ArrayList<>();
+    public String getId() {
+        return id;
     }
-
-    public RollingComponent getTrainPart(String rollingComponentType, Integer wheels, String id) {
-        RollingComponent trainpart = null;
-        switch (rollingComponentType) {
-            case "Cargo":
-                trainpart = new CargoWagon(id, wheels, "../res/wg3.png");
-                break;
-
-            case "FirstClass":
-                trainpart = new FirstClassWagon(id, wheels, "../res/wg2.png");
-                break;
-
-            case "SecondClass":
-                trainpart = new SecondClassWagon(id, wheels, "../res/wg1.png");
-                break;
-
-            case "LocomotiveBasic":
-                trainpart = new LocomotiveBasic(id, wheels, "../res/train.png");
-                break;
-        }
-        components.add(trainpart);
-        return trainpart;
-    }
-    public static ArrayList<RollingComponent> getPullables(){return components;
-    }
-
 }
 
 
