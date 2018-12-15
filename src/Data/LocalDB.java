@@ -19,17 +19,16 @@ public class LocalDB implements DatabaseConnection {
         trains.add(train);
     }
 
-    public boolean deleteTrain(String id){
-       Train train = getTrainById(id);
-       if (train != null) {
-           trains.remove(train);
-           return true;
-       }
-       else{
-           return false;
-       }
-
+    public void deleteTrain(Train train){
+       trains.remove(train);
    }
+
+   public void saveTrain(Train train){
+        String id = train.getId();
+        deleteTrain(getTrainById(id));
+        trains.add(train);
+   }
+
     public ArrayList<RollingComponent> getAllRollingComponents() {
         return rollingComponents;
     }
@@ -37,7 +36,6 @@ public class LocalDB implements DatabaseConnection {
     public void addRollingComponent(RollingComponent rollingComponent){
         rollingComponents.add(rollingComponent);
     }
-
 
 
     private Train getTrainById(String id){
@@ -49,5 +47,6 @@ public class LocalDB implements DatabaseConnection {
         }
         return found;
     }
+
 
 }

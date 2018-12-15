@@ -9,9 +9,11 @@ public interface DatabaseConnection {
     //SaveTrain
 
     ArrayList<Train> getAllTrains();
-    void addTrain(Train t);
-    boolean deleteTrain(String trainID);
+    void addTrain(Train train);
+    void deleteTrain(Train train);
+    void saveTrain(Train train);
     ArrayList<RollingComponent> getAllRollingComponents();
     void addRollingComponent(RollingComponent rollingComponent);
+
 
 }

@@ -2,10 +2,7 @@ package Application;
 
 import Data.DatabaseConnection;
 import Data.LocalDB;
-import DataRepresentation.Locomotive;
-import DataRepresentation.RollingComponent;
-import DataRepresentation.RollingComponentType;
-import DataRepresentation.Train;
+import DataRepresentation.*;
 
 import java.util.ArrayList;
 
@@ -20,32 +17,42 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
 
 
 
-    public void NewTrain(String name, RollingComponent locomotive){//
+    public void NewTrain(RollingComponent locomotive, String id){//
         //
         if (locomotive  instanceof Locomotive) {
-            Train t = new Train(name, locomotive);
+            Train t = new Train(id, locomotive);
             dbc.addTrain(t);
 
         }else{
             //sent error message
-        }
-    }
-    public void DeleteTrain(String trainID){
-        boolean done = dbc.deleteTrain(trainID);
-        if (done == false){
-            //sent error message
-        }
-    }
-    public void NewRollingComponent(RollingComponentType type, String Name, int seats){
 
+        }
     }
-    public void AddRollingComponentToTrain(String trainid, String rollingcomponentid){
+    public void DeleteTrain(Train train){
+        dbc.deleteTrain(train);
+    }
+    public void NewRollingComponent(RollingComponentType type, String name, int seats){
+        RollingComponent r =  RollingComponentFactory.BuildRC(type,name,seats);
+        dbc.addRollingComponent(r);
+    }
+    public void NewRollingComponent(RollingComponentType type, String name){
+        RollingComponent r =  RollingComponentFactory.BuildRC(type,name);
+        dbc.addRollingComponent(r);
+    }
+    public void AddRollingComponentToTrain(Train train, RollingComponent rollingcomponent){
         //check dat het geen locomotief is
-
-
+        train.addWagon(rollingcomponent);
+        dbc.saveTrain(train);
     }
-    public boolean DeleteRollingComponentFromTrain(int trainIndex, int rollingComponentIndex){
-        return true;
+    public boolean DeleteRollingComponentFromTrain(Train train, RollingComponent rollingComponent) {
+        if (rollingComponent instanceof Locomotive) {
+            //error
+            return false;
+        } else {
+            train.removeWagon(rollingComponent);
+            dbc.saveTrain(train);
+            return true;
+        }
     }
     public ArrayList<Train> getTrains(){
         return dbc.getAllTrains();

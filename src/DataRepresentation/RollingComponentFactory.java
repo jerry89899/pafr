@@ -14,7 +14,7 @@ public class RollingComponentFactory {
                 break;
 
             case CargoWagon:
-                rc = new SecondClassWagon(id,seats);
+                rc = new CargoWagon(id,seats);
                 break;
 
             case Locomotive:
@@ -36,7 +36,7 @@ public class RollingComponentFactory {
                 break;
 
             case CargoWagon:
-                rc = new SecondClassWagon(id);
+                rc = new CargoWagon(id);
                 break;
 
             case Locomotive:
