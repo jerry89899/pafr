@@ -14,6 +14,6 @@ public class start {
         System.out.println(ts.getTrains());
         System.out.println(ts.getTrains().get(0).getRollingComponents());
         ts.NewTrain(ts.getRollingComponents().get(0), "test2");
-        //        ts.NewTrain();
+        System.out.println(ts.getTrains());
     }
 }
