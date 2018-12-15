@@ -7,9 +7,11 @@ public abstract class RollingComponent {
 
     }
 
+    public abstract int getSeats();
+
     private RollingComponentType type = null;
 
-    private RollingComponentType getType(){
+    public RollingComponentType getType(){
         return type;
     }
 

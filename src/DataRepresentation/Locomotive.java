@@ -14,7 +14,7 @@ public class Locomotive extends RollingComponent{
     Locomotive(String id){
         super(RollingComponentType.Locomotive);
         this.id = id;
-        this.seats = seats;
+        this.seats = 20;
     }
 
     public int getSeats() {
@@ -23,5 +23,9 @@ public class Locomotive extends RollingComponent{
 
     public String getId() {
         return id;
+    }
+
+    public String draw(){
+        return "../res/train.png";
     }
 }

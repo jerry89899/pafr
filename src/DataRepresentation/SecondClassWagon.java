@@ -12,7 +12,7 @@ public class SecondClassWagon extends RollingComponent{
     SecondClassWagon(String id) {
         super(RollingComponentType.SecondClassWagon);
         this.id = id;
-        this.seats = seats;
+        this.seats = 20;
     }
 
     public int getSeats() {
@@ -21,6 +21,10 @@ public class SecondClassWagon extends RollingComponent{
 
     public String getId() {
         return id;
+    }
+
+    public String getImage(){
+        return "../res/wg1.png";
     }
 }
 

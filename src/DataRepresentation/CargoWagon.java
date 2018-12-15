@@ -11,7 +11,7 @@ public class CargoWagon extends RollingComponent{
     CargoWagon(String id){
         super(RollingComponentType.FirstClassWagon);
         this.id = id;
-        this.seats = seats;
+        this.seats = 20;
     }
 
     public int getSeats() {
@@ -20,6 +20,10 @@ public class CargoWagon extends RollingComponent{
 
     public String getId() {
         return id;
+    }
+
+    public String getImage(){
+        return "../res/wg3.png";
     }
 
 }
