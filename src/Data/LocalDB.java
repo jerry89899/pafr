@@ -1,23 +1,26 @@
 package Data;
 
 
+import DataRepresentation.RollingComponent;
+import DataRepresentation.Train;
+
 import java.util.ArrayList;
 
 public class LocalDB implements DatabaseConnection {
 
-   private ArrayList<TrainFactory> trains = new  ArrayList<TrainFactory>();
+   private ArrayList<Train> trains = new  ArrayList<Train>();
    private ArrayList<RollingComponent> rollingComponents = new  ArrayList<RollingComponent>();
 
-    public ArrayList<TrainFactory> getAllTrains(){
+    public ArrayList<Train> getAllTrains(){
        return trains;
    }
 
-    public void addTrain(TrainFactory train){
+    public void addTrain(Train train){
         trains.add(train);
     }
 
     public boolean deleteTrain(String id){
-       TrainFactory train = getTrainById(id);
+       Train train = getTrainById(id);
        if (train != null) {
            trains.remove(train);
            return true;
@@ -37,9 +40,9 @@ public class LocalDB implements DatabaseConnection {
 
 
 
-    private TrainFactory getTrainById(String id){
-        TrainFactory found = null;
-        for (TrainFactory t: trains){
+    private Train getTrainById(String id){
+        Train found = null;
+        for (Train t: trains){
             if (t.getId().equals(id) ){
                 found = t;
             }

@@ -2,6 +2,10 @@ package Application;
 
 import Data.DatabaseConnection;
 import Data.LocalDB;
+import DataRepresentation.Locomotive;
+import DataRepresentation.RollingComponent;
+import DataRepresentation.RollingComponentType;
+import DataRepresentation.Train;
 
 import java.util.ArrayList;
 
@@ -19,7 +23,7 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
     public void NewTrain(String name, RollingComponent locomotive){//
         //
         if (locomotive  instanceof Locomotive) {
-            TrainFactory t = new TrainFactory(name, locomotive);
+            Train t = new Train(name, locomotive);
             dbc.addTrain(t);
 
         }else{
@@ -43,7 +47,7 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
     public boolean DeleteRollingComponentFromTrain(int trainIndex, int rollingComponentIndex){
         return true;
     }
-    public ArrayList<TrainFactory> getTrains(){
+    public ArrayList<Train> getTrains(){
         return dbc.getAllTrains();
     }
     public ArrayList<RollingComponent> getRollingComponents(){
