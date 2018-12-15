@@ -1,18 +1,16 @@
 package DataRepresentation;
 
-import java.util.ArrayList;
-
-public class Locomotive extends RollingComponent{
+public class FirstClassWagon extends RollingComponent {
     private String id;
     private int seats;
-    Locomotive(String id, int seats){
-        super(RollingComponentType.Locomotive);
+    FirstClassWagon(String id, int seats){
+        super(RollingComponentType.FirstClassWagon);
         this.id = id;
         this.seats = seats;
     }
 
-    Locomotive(String id){
-        super(RollingComponentType.Locomotive);
+    FirstClassWagon(String id){
+        super(RollingComponentType.FirstClassWagon);
         this.id = id;
         this.seats = seats;
     }

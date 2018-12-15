@@ -1,7 +1,16 @@
 package DataRepresentation;
 
-public interface RollingComponent {
+public abstract class RollingComponent {
 
-    void draw();
+    public  RollingComponent(RollingComponentType type){
+        this.type = type;
+
+    }
+
+    private RollingComponentType type = null;
+
+    private RollingComponentType getType(){
+        return type;
+    }
 
 }
