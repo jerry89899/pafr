@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<fx:root type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TextFlow id="outputfield" fx:id="outputfield" prefHeight="196.0" prefWidth="255.0" style="-fx-background-color: black;" />
+    </children>
+</fx:root>
