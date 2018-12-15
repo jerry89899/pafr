@@ -1,9 +1,6 @@
 package Data;
 
 
-import DataRepresentation.RollingComponent;
-import DataRepresentation.TrainFactory;
-
 import java.util.ArrayList;
 
 public class LocalDB implements DatabaseConnection {
@@ -11,14 +8,15 @@ public class LocalDB implements DatabaseConnection {
    private ArrayList<TrainFactory> trains = new  ArrayList<TrainFactory>();
    private ArrayList<RollingComponent> rollingComponents = new  ArrayList<RollingComponent>();
 
-    public ArrayList<TrainFactory> GetAllTrains(){
+    public ArrayList<TrainFactory> getAllTrains(){
        return trains;
    }
-    public void AddTrain(TrainFactory train){
+
+    public void addTrain(TrainFactory train){
         trains.add(train);
     }
 
-    public boolean DeleteTrain(String id){
+    public boolean deleteTrain(String id){
        TrainFactory train = getTrainById(id);
        if (train != null) {
            trains.remove(train);
@@ -29,10 +27,11 @@ public class LocalDB implements DatabaseConnection {
        }
 
    }
-    public ArrayList<RollingComponent> GetAllRollingComponents(){
+    public ArrayList<RollingComponent> getAllRollingComponents() {
         return rollingComponents;
     }
-    public void AddTrain(RollingComponent rollingComponent){
+
+    public void addRollingComponent(RollingComponent rollingComponent){
         rollingComponents.add(rollingComponent);
     }
 

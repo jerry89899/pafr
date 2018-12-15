@@ -3,79 +3,62 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="527.0" y="86.0">DataRepresentation.Locomotive</node>
-    <node x="783.4479166666666" y="253.0">Application.TrainRepository</node>
-    <node x="286.99479166666663" y="226.0">Application.TrainService</node>
-    <node x="307.99999999999994" y="113.0">Application.TrainServiceInterface</node>
-    <node x="121.5" y="361.0">Interaction.Application</node>
-    <node x="0.0" y="99.5">DataRepresentation.Train</node>
-    <node x="693.0" y="113.0">Application.TrainRepositoryInterface</node>
-    <node x="0.0" y="447.0">Interaction.VisualApplication</node>
-    <node x="197.0" y="447.0">Interaction.ConsoleApplication</node>
-    <node x="516.2864583333333" y="0.0">DataRepresentation.RollingComponent</node>
-    <node x="936.0" y="99.5">DataRepresentation.Wagon</node>
+    <node x="0.0" y="233.5">DataRepresentation.FirstClassWagon</node>
+    <node x="579.0" y="233.5">DataRepresentation.SecondClassWagon</node>
+    <node x="590.875" y="0.0">DataRepresentation.RollingComponent</node>
+    <node x="298.0" y="222.0">DataRepresentation.CargoWagon</node>
+    <node x="280.75" y="44.5">DataRepresentation.Pullable</node>
+    <node x="0.0" y="409.0">DataRepresentation.TrainFactory</node>
+    <node x="991.25" y="33.0">DataRepresentation.Locomotive</node>
+    <node x="894.0" y="222.5">DataRepresentation.LocomotiveBasic</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="DataRepresentation.Train" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-31.5" />
-      <point x="144.0" y="61.0" />
-      <point x="547.2864583333333" y="61.0" />
-      <point x="-62.0" y="18.0" />
+    <edge source="DataRepresentation.FirstClassWagon" target="DataRepresentation.Pullable">
+      <point x="-69.5" y="-59.5" />
+      <point x="69.5" y="182.0" />
+      <point x="308.25" y="182.0" />
+      <point x="-55.0" y="36.5" />
     </edge>
-    <edge source="Application.TrainService" target="Application.TrainRepositoryInterface">
-      <point x="117.75" y="-45.0" />
-      <point x="561.7447916666666" y="206.0" />
-      <point x="804.5" y="206.0" />
-      <point x="0.0" y="18.0" />
+    <edge source="DataRepresentation.FirstClassWagon" target="DataRepresentation.RollingComponent">
+      <point x="69.5" y="-59.5" />
+      <point x="208.5" y="192.0" />
+      <point x="632.75" y="192.0" />
+      <point x="-125.625" y="81.0" />
     </edge>
-    <edge source="Interaction.VisualApplication" target="Interaction.Application">
-      <point x="0.0" y="-18.0" />
-      <point x="88.5" y="422.0" />
-      <point x="156.0" y="422.0" />
-      <point x="-34.5" y="18.0" />
+    <edge source="DataRepresentation.CargoWagon" target="DataRepresentation.RollingComponent">
+      <point x="65.25" y="-71.0" />
+      <point x="493.75" y="202.0" />
+      <point x="716.5" y="202.0" />
+      <point x="-41.875" y="81.0" />
     </edge>
-    <edge source="DataRepresentation.Wagon" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-31.5" />
-      <point x="1013.5" y="61.0" />
-      <point x="671.2864583333333" y="61.0" />
-      <point x="62.0" y="18.0" />
+    <edge source="DataRepresentation.CargoWagon" target="DataRepresentation.Pullable">
+      <point x="-65.25" y="-71.0" />
+      <point x="0.0" y="36.5" />
     </edge>
-    <edge source="Application.TrainService" target="Application.TrainServiceInterface">
-      <point x="-39.25" y="-45.0" />
-      <point x="404.74479166666663" y="206.0" />
-      <point x="407.49999999999994" y="206.0" />
-      <point x="0.0" y="18.0" />
+    <edge source="DataRepresentation.LocomotiveBasic" target="DataRepresentation.RollingComponent">
+      <point x="-70.25" y="-70.5" />
+      <point x="964.25" y="202.0" />
+      <point x="884.0" y="202.0" />
+      <point x="125.62499999999994" y="81.0" />
     </edge>
-    <edge source="DataRepresentation.Locomotive" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-45.0" />
-      <point x="600.0" y="61.0" />
-      <point x="609.2864583333333" y="61.0" />
-      <point x="0.0" y="18.0" />
+    <edge source="DataRepresentation.SecondClassWagon" target="DataRepresentation.RollingComponent">
+      <point x="73.75" y="-59.5" />
+      <point x="41.875" y="81.0" />
     </edge>
-    <edge source="Application.TrainRepository" target="Application.TrainRepositoryInterface">
-      <point x="0.0" y="-18.0" />
-      <point x="865.9479166666666" y="206.0" />
-      <point x="878.8333333333333" y="206.0" />
-      <point x="74.33333333333331" y="18.0" />
+    <edge source="DataRepresentation.SecondClassWagon" target="DataRepresentation.Pullable">
+      <point x="-73.75" y="-59.5" />
+      <point x="652.75" y="182.0" />
+      <point x="418.25" y="182.0" />
+      <point x="55.0" y="36.5" />
     </edge>
-    <edge source="Application.TrainService" target="DataRepresentation.Train">
-      <point x="-117.75" y="-45.0" />
-      <point x="326.24479166666663" y="206.0" />
-      <point x="144.0" y="206.0" />
-      <point x="0.0" y="31.5" />
-    </edge>
-    <edge source="Interaction.ConsoleApplication" target="Interaction.Application">
-      <point x="0.0" y="-18.0" />
-      <point x="292.5" y="422.0" />
-      <point x="225.0" y="422.0" />
-      <point x="34.5" y="18.0" />
+    <edge source="DataRepresentation.LocomotiveBasic" target="DataRepresentation.Locomotive">
+      <point x="70.25" y="-70.5" />
+      <point x="0.0" y="48.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.6421143847487002" x="567.0" y="158.0" />
-  <SelectedNodes>
-    <node>Interaction.ConsoleApplication</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.9421143847487001" x="625.6854304635762" y="401.87251655629143" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

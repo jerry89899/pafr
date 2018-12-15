@@ -2,10 +2,6 @@ package Application;
 
 import Data.DatabaseConnection;
 import Data.LocalDB;
-import DataRepresentation.Locomotive;
-import DataRepresentation.LocomotiveBasic;
-import DataRepresentation.RollingComponent;
-import DataRepresentation.TrainFactory;
 
 import java.util.ArrayList;
 
@@ -24,14 +20,14 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
         //
         if (locomotive  instanceof Locomotive) {
             TrainFactory t = new TrainFactory(name, locomotive);
-            dbc.AddTrain(t);
+            dbc.addTrain(t);
 
         }else{
             //sent error message
         }
     }
     public void DeleteTrain(String trainID){
-        boolean done = dbc.DeleteTrain(trainID);
+        boolean done = dbc.deleteTrain(trainID);
         if (done == false){
             //sent error message
         }
@@ -42,15 +38,16 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
     public void AddRollingComponentToTrain(String trainid, String rollingcomponentid){
         //check dat het geen locomotief is
 
+
     }
     public boolean DeleteRollingComponentFromTrain(int trainIndex, int rollingComponentIndex){
         return true;
     }
     public ArrayList<TrainFactory> getTrains(){
-        return dbc.GetAllTrains();
+        return dbc.getAllTrains();
     }
     public ArrayList<RollingComponent> getRollingComponents(){
-        return dbc.GetAllRollingComponents();
+        return dbc.getAllRollingComponents();
     }
 
 

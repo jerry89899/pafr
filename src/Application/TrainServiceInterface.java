@@ -1,8 +1,5 @@
 package Application;
 
-import DataRepresentation.RollingComponent;
-import DataRepresentation.TrainFactory;
-
 import java.util.ArrayList;
 
 public interface TrainServiceInterface {
