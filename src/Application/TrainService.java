@@ -32,11 +32,11 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
         dbc.deleteTrain(train);
     }
     public void NewRollingComponent(RollingComponentType type, String name, int seats){
-        RollingComponent r =  RollingComponentFactory.BuildRC(type,name,seats);
+        RollingComponent r =  RollingComponentFactory.buildRC(type,name,seats);
         dbc.addRollingComponent(r);
     }
     public void NewRollingComponent(RollingComponentType type, String name){
-        RollingComponent r =  RollingComponentFactory.BuildRC(type,name);
+        RollingComponent r =  RollingComponentFactory.buildRC(type,name);
         dbc.addRollingComponent(r);
     }
     public void AddRollingComponentToTrain(Train train, RollingComponent rollingcomponent){
