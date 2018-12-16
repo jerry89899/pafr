@@ -6,6 +6,8 @@ public abstract class RollingComponent {
         this.type = type;
 
     }
+    protected String id;
+    protected int seats;
 
     public abstract int getSeats();
     public abstract String getId();

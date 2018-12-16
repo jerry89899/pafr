@@ -7,12 +7,13 @@ import Interaction.VisualApplication;
 
 public class start {
     public static void main(String [ ] args){
-        //create observer data class
-        Data data = new Data();
-        //add observers
-        new ConsoleApplication(data);
-        new VisualApplication(data);
-        //register observers
+        //poging voor observer;
+//        //create observer data class
+//        Data data = new Data();
+//        //add observers
+//        new ConsoleApplication(data);
+//        new VisualApplication(data);
+//        //register observers
 
 
         TrainService ts = new TrainService();
