@@ -3,17 +3,24 @@ package Application;
 import Data.DatabaseConnection;
 import Data.LocalDB;
 import DataRepresentation.*;
+import Interaction.ConsoleApplication;
+import Interaction.Data;
 
 import java.util.ArrayList;
 
 public class TrainService implements TrainRepositoryInterface, TrainServiceInterface {
-//
-//    public TrainFactory train;
-//    public TrainRepositoryInterface trainRepo;
-//
-////     maakt trein
-//    public TrainFactory t1 = train.getPullables();
+
+
+
+    //create database connection
     DatabaseConnection dbc = new LocalDB();
+
+    //create observer data class
+    Data data = new Data();
+    //add observers
+    ConsoleApplication consoleApplication = new ConsoleApplication();
+    //register observers
+    data.
 
 
 
