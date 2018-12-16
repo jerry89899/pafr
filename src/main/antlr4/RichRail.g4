@@ -9,7 +9,7 @@ getcommand 	: 'getnumseats' TYPE ID;
 delcommand 	: 'delete' TYPE ID;
 remcommand	: 'remove' ID 'from' ID;
 
-TYPE		: ('train') | ('wagon') | ('firstclasswagon');
+TYPE		: ('Locomotive') | ('wagon') | ('firstclasswagon') | ('secondclasswagon') | ('cargowagon');
 
 ID		: ('a'..'z')('a'..'z'|'0'..'9')*;
 NUMBER		: ('0'..'9')+;

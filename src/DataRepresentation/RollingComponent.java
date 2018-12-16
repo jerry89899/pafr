@@ -2,9 +2,8 @@ package DataRepresentation;
 
 public abstract class RollingComponent {
 
-    public  RollingComponent(RollingComponentType type){
+    public  RollingComponent (RollingComponentType type){
         this.type = type;
-
     }
 
     public abstract int getSeats();
