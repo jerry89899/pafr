@@ -11,12 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox prefHeight="602.0" prefWidth="640.0"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import presentation.LogOutput?>
+<?import presentation.TreintjesOutput?>
+<VBox prefHeight="602.0" prefWidth="640.0" fx:controller="presentation.InputController" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <MenuBar VBox.vgrow="NEVER">
         <menus>
             <Menu mnemonicParsing="false" text="File">
                 <items>
-                    <MenuItem mnemonicParsing="false"  text="Open trains" />
+                    <MenuItem mnemonicParsing="false" onAction="#openTrain" text="Open trains" />
                 </items>
             </Menu>
         </menus>
@@ -26,7 +28,7 @@
             <children>
                 <HBox fx:id="traincontainer" layoutX="11.0" layoutY="10" prefHeight="188" prefWidth="500">
                     <children>
-
+                        <TreintjesOutput fx:id="treinOutput"/>
                     </children>
                 </HBox>
                 <HBox layoutX="11.0" layoutY="227.0" prefHeight="194.0" prefWidth="308.0">
@@ -35,13 +37,13 @@
                     </children>
                 </HBox>
                 <HBox layoutX="367.0" layoutY="226.0" prefHeight="194.0" prefWidth="254.0">
-
+                    <LogOutput fx:id="logOutput"/>
                 </HBox>
                 <HBox layoutX="11.0" layoutY="429.0" prefHeight="133.0" prefWidth="610.0">
                     <children>
                         <Label text="Command" />
                         <TextField fx:id="commandoInput" id="commandoInput" prefHeight="26.0" prefWidth="193.0" />
-                        <Button mnemonicParsing="false" text="Execute" />
+                        <Button onAction="#onRunClick" mnemonicParsing="false" text="Execute" />
                     </children>
                 </HBox>
             </children>
