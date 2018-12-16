@@ -23,7 +23,7 @@ public class Locomotive extends RollingComponent{
         return id;
     }
 
-    public String draw(){
+    public String getImage(){
         return "../res/train.png";
     }
 }
