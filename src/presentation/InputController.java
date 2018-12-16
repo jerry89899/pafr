@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class 1InputController implements Initializable {
+public class InputController implements Initializable {
     private ArrayList<Output> outputs = new ArrayList<>();
     private VehicleController controller;
     @FXML LogOutput logOutput;
