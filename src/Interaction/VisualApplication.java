@@ -5,9 +5,17 @@ import DataRepresentation.Train;
 
 import java.util.ArrayList;
 
-public class VisualApplication implements Observer {
-    @Override
-    public void update(ArrayList<Train> trains, ArrayList<RollingComponent> rollingComponents){
-        //update in frontend
+public class VisualApplication extends Observer {
+    public VisualApplication(Data data){
+        this.data = data;
+        this.data.registerObserver(this);
     }
+
+    @Override
+    public void update(){
+        //update in frontend
+        System.out.println("consoleapp"+data.getTrains());
+        System.out.println("consoleapp"+ data.getRollingComponents());
+    }
+
 }

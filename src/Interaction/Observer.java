@@ -6,8 +6,9 @@ import DataRepresentation.Train;
 
 import java.util.ArrayList;
 
-public interface Observer {
+public abstract class Observer {
+    protected Data data;
 
-    public void update(ArrayList<Train> trains, ArrayList<RollingComponent> rollingComponents);
+    public abstract void update();
 
 }

@@ -3,12 +3,13 @@ package Data;
 
 import DataRepresentation.RollingComponent;
 import DataRepresentation.Train;
+import Interaction.ConsoleApplication;
+import Interaction.Data;
 
 import java.util.ArrayList;
 
-public class LocalDB implements DatabaseConnection {
-
-   private ArrayList<Train> trains = new  ArrayList<Train>();
+public class LocalDB extends Data implements DatabaseConnection {
+    private ArrayList<Train> trains = new  ArrayList<Train>();
    private ArrayList<RollingComponent> rollingComponents = new  ArrayList<RollingComponent>();
 
     public ArrayList<Train> getAllTrains(){
@@ -17,16 +18,19 @@ public class LocalDB implements DatabaseConnection {
 
     public void addTrain(Train train){
         trains.add(train);
+        updateTrains(trains);
     }
 
     public void deleteTrain(Train train){
        trains.remove(train);
+       updateTrains(trains);
    }
 
    public void saveTrain(Train train){
         String id = train.getId();
         deleteTrain(getTrainById(id));
         trains.add(train);
+        updateTrains(trains);
    }
 
     public ArrayList<RollingComponent> getAllRollingComponents() {
@@ -35,6 +39,7 @@ public class LocalDB implements DatabaseConnection {
 
     public void addRollingComponent(RollingComponent rollingComponent){
         rollingComponents.add(rollingComponent);
+        updateRollingComponents(rollingComponents);
     }
 
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Data implements Observable{
+public class Data implements Observable {
     private List<Observer> observers;
 
     public Data(){
@@ -25,23 +25,23 @@ public class Data implements Observable{
         return rollingComponents;
     }
 
-    @Override
+
     public void registerObserver(Observer observer) {
         if (observer != null) {
             this.observers.add(observer);
         }
     }
 
-    @Override
+
     public void notifyObservers() {
         Iterator<Observer> it = observers.iterator();
         while(it.hasNext()){
             Observer observer = it.next();
-            observer.update(trains,rollingComponents);
+            observer.update();
         }
     }
 
-    @Override
+
     public void removeObserver(Observer observer) {
         if(observer != null){
             this.observers.remove(observer);
@@ -50,9 +50,11 @@ public class Data implements Observable{
 
     public void updateTrains(ArrayList<Train> trains){
         this.trains = trains;
+        notifyObservers();
     }
     public void updateRollingComponents(ArrayList<RollingComponent> rollingComponents){
         this.rollingComponents = rollingComponents;
+        notifyObservers();
     }
 
 }

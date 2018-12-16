@@ -8,6 +8,7 @@ public abstract class RollingComponent {
     }
 
     public abstract int getSeats();
+    public abstract String getId();
 
     private RollingComponentType type = null;
 
