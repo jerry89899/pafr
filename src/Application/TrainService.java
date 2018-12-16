@@ -3,9 +3,12 @@ package Application;
 import Data.DatabaseConnection;
 import Data.LocalDB;
 import DataRepresentation.*;
-import Interaction.*;
+
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Observer;
+
 
 public class TrainService implements TrainRepositoryInterface, TrainServiceInterface {
 
@@ -14,10 +17,7 @@ public class TrainService implements TrainRepositoryInterface, TrainServiceInter
     //create database connection
     DatabaseConnection dbc = new LocalDB();
 
-
-
-
-    public void NewTrain(RollingComponent locomotive, String id){//
+     public void NewTrain(RollingComponent locomotive, String id){//
         //
         if (locomotive  instanceof Locomotive) {
             Train t = new Train(id, locomotive);

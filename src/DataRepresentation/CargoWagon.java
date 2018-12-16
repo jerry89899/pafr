@@ -1,8 +1,7 @@
 package DataRepresentation;
 
 public class CargoWagon extends RollingComponent{
-    private String id;
-    private int seats;
+
     CargoWagon(String id, int seats){
         super(RollingComponentType.CargoWagon);
         this.id = id;
