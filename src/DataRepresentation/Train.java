@@ -27,6 +27,14 @@ public class Train {
     public List<RollingComponent> getRollingComponents() {
         return rollingComponents;
     }
+
+    public int getTotalSeats(){
+        int seats = 0;
+        for (RollingComponent rc: rollingComponents){
+            seats = seats + rc.getSeats();
+        }
+        return seats;
+    }
 }
 
 

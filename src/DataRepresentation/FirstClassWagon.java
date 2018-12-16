@@ -12,7 +12,7 @@ public class FirstClassWagon extends RollingComponent {
     FirstClassWagon(String id){
         super(RollingComponentType.FirstClassWagon);
         this.id = id;
-        this.seats = seats;
+        this.seats = 20;
     }
 
     public int getSeats() {
@@ -21,5 +21,9 @@ public class FirstClassWagon extends RollingComponent {
 
     public String getId() {
         return id;
+    }
+
+    public String getImage(){
+        return "../res/wg2.png";
     }
 }

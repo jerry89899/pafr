@@ -2,7 +2,7 @@ package DataRepresentation;
 
 public class RollingComponentFactory {
 
-    public static RollingComponent BuildRC(RollingComponentType type, String id, int seats){
+    public static RollingComponent buildRC(RollingComponentType type, String id, int seats){
         RollingComponent rc = null;
         switch (type){
             case FirstClassWagon:
@@ -24,7 +24,7 @@ public class RollingComponentFactory {
         }
         return rc;
     }
-    public static RollingComponent BuildRC(RollingComponentType type, String id){
+    public static RollingComponent buildRC(RollingComponentType type, String id){
         RollingComponent rc = null;
         switch (type){
             case FirstClassWagon:
@@ -46,6 +46,8 @@ public class RollingComponentFactory {
         }
         return rc;
     }
+
+
 
 
 }
