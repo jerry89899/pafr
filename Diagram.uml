@@ -3,73 +3,41 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="690.0" y="786.0">DataRepresentation.FirstClassWagon</node>
-    <node x="989.0" y="121.5">presentation.parser</node>
-    <node x="711.0" y="0.0">presentation.InputController</node>
-    <node x="214.0" y="786.0">DataRepresentation.SecondClassWagon</node>
-    <node x="560.0" y="971.0">presentation.listeners</node>
-    <node x="782.25" y="322.0">presentation.InputController.Listener</node>
-    <node x="355.0" y="971.0">presentation.DockController</node>
-    <node x="296.5" y="551.0">DataRepresentation.RollingComponent</node>
-    <node x="171.5" y="0.0">presentation.Output</node>
-    <node x="469.0" y="786.0">DataRepresentation.CargoWagon</node>
-    <node x="0.0" y="786.0">DataRepresentation.Locomotive</node>
-    <node x="0.0" y="211.0">presentation.TreintjesOutput</node>
-    <node x="0.0" y="971.0">presentation.VehicleController</node>
-    <node x="343.0" y="244.0">presentation.LogOutput</node>
+    <node x="0.0" y="0.0">paf.ass2.PoorRail</node>
+    <node x="0.0" y="926.0">Data.LocalDB</node>
+    <node x="634.5" y="0.0">Application.TrainServiceInterface</node>
+    <node x="0.0" y="714.0">Data.DatabaseConnection</node>
+    <node x="357.75" y="88.5">Application.TrainRepositoryInterface</node>
+    <node x="605.0" y="714.0">Application.start</node>
+    <node x="382.0" y="714.0">main.Launch</node>
+    <node x="1046.0" y="714.0">presentation</node>
+    <node x="301.0" y="345.0">Application.TrainRepository</node>
+    <node x="523.0" y="256.0">Application.TrainService</node>
+    <node x="0.0" y="1155.0">main.antlr4</node>
+    <node x="819.0" y="714.0">DataRepresentation</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="presentation.InputController.Listener" target="presentation.parser">
-      <point x="80.0" y="-69.5" />
-      <point x="1022.25" y="297.0" />
-      <point x="1044.5" y="297.0" />
-      <point x="0.0" y="14.5" />
+    <edge source="Application.TrainService" target="Application.TrainRepositoryInterface">
+      <point x="-111.5" y="-114.5" />
+      <point x="634.5" y="231.0" />
+      <point x="490.5" y="231.0" />
+      <point x="44.25" y="14.5" />
     </edge>
-    <edge source="DataRepresentation.FirstClassWagon" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-70.0" />
-      <point x="799.0" y="756.0" />
-      <point x="566.0" y="756.0" />
-      <point x="115.5" y="92.5" />
+    <edge source="Data.LocalDB" target="Data.DatabaseConnection">
+      <point x="0.0" y="-92.0" />
+      <point x="0.0" y="81.0" />
     </edge>
-    <edge source="DataRepresentation.SecondClassWagon" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-70.0" />
-      <point x="331.5" y="766.0" />
-      <point x="412.0" y="766.0" />
-      <point x="-38.5" y="92.5" />
+    <edge source="Application.TrainService" target="Application.TrainServiceInterface">
+      <point x="111.5" y="-114.5" />
+      <point x="0.0" y="103.0" />
     </edge>
-    <edge source="DataRepresentation.CargoWagon" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-70.0" />
-      <point x="569.5" y="766.0" />
-      <point x="489.0" y="766.0" />
-      <point x="38.5" y="92.5" />
-    </edge>
-    <edge source="DataRepresentation.Locomotive" target="DataRepresentation.RollingComponent">
-      <point x="0.0" y="-70.0" />
-      <point x="97.0" y="756.0" />
-      <point x="335.0" y="756.0" />
-      <point x="-115.5" y="92.5" />
-    </edge>
-    <edge source="presentation.InputController.Listener" target="presentation.InputController">
-      <point x="-80.0" y="-69.5" />
-      <point x="862.25" y="297.0" />
-      <point x="840.0" y="297.0" />
-      <point x="0.0" y="136.0" />
-    </edge>
-    <edge source="presentation.TreintjesOutput" target="presentation.Output">
-      <point x="0.0" y="-147.5" />
-      <point x="161.5" y="186.0" />
-      <point x="252.25" y="186.0" />
-      <point x="-80.75" y="80.5" />
-    </edge>
-    <edge source="presentation.LogOutput" target="presentation.Output">
-      <point x="0.0" y="-114.5" />
-      <point x="504.5" y="186.0" />
-      <point x="413.75" y="186.0" />
-      <point x="80.75" y="80.5" />
+    <edge source="Application.TrainRepository" target="Application.TrainRepositoryInterface">
+      <point x="0.0" y="-25.5" />
+      <point x="-44.25" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.9421143847487001" x="626.0" y="281.4495952906549" />
+  <settings layout="Hierarchic Group" zoom="0.9421143847487001" x="626.0" y="408.4495952906549" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
