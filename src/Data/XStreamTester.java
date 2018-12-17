@@ -1,7 +1,9 @@
 package Data;
         import java.io.*;
+        import java.nio.charset.StandardCharsets;
         import java.nio.file.Files;
         import java.nio.file.Path;
+        import java.nio.file.Paths;
         import java.util.ArrayList;
         import javax.xml.transform.OutputKeys;
         import javax.xml.transform.Source;
@@ -24,7 +26,7 @@ public class XStreamTester {
         XStream xstream = new XStream(new StaxDriver());
         //Object to XML Conversion
 
-        try (PrintWriter out = new PrintWriter("Data/XStream.xml")) {
+        try (PrintWriter out = new PrintWriter("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\XStream.xml")) {
             String xml = xstream.toXML(train);
             out.println((formatXml(xml)));
         } catch (IOException ex) {
@@ -35,18 +37,12 @@ public class XStreamTester {
         public void XmlToObject() throws IOException{
         XStream xstream = new XStream(new StaxDriver());
         //XML to Object Conversion
-            String sCurrentLine;
-            StringBuilder sb = new StringBuilder();
-            try (BufferedReader br = new BufferedReader(new FileReader("Data/XStream.xml"))){
+            byte[] encoded = Files.readAllBytes(Paths.get("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\XStream.xml"));
+            String xml =  new String(encoded, StandardCharsets.UTF_8 );
 
-                while ((sCurrentLine = br.readLine()) != null) {
-                    sb.append(sCurrentLine);
-                }
+            //XML to Object Conversion
 
-            }
-
-        Train train = (Train)xstream.fromXML(sb.toString());
-        System.out.println(train);
+            Train train = (Train)xstream.fromXML(xml);
     }
 
     public static String formatXml(String xml){
