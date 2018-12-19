@@ -1,8 +1,6 @@
 package DataRepresentation;
 
-import java.util.ArrayList;
-
-public class Locomotive extends RollingComponent{
+public class Locomotive extends RollingComponent {
     Locomotive(String id, int seats){
         super(RollingComponentType.Locomotive);
         this.id = id;

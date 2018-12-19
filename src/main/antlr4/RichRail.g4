@@ -1,16 +1,18 @@
-
 grammar RichRail;
 
-command 	: newcommand | addcommand | getcommand | delcommand | remcommand;
+// Rules
+command         : newcommand | addcommand | getcommand | delcommand | remcommand;
+newcommand      : newtraincommand | newwagoncommand;
+newtraincommand : 'new' 'train' ID 'with' ID;
+newwagoncommand : 'new' type ID ('numseats' NUMBER)?;
+addcommand      : 'add' ID 'to' ID;
+getcommand      : 'getnumseats' deletetype id=ID;
+delcommand      : 'delete' deletetype ID;
+remcommand      : 'remove' ID 'from' ID;
+type            : ('locomotive') | ('firstclasswagon') | ('secondclasswagon') | ('cargowagon');
+deletetype      : 'train' | 'wagon';
+// Tokens
+ID          : ('a'..'z')('a'..'z'|'0'..'9')*;
+NUMBER      : ('0'..'9')+;
+WHITESPACE  : [ \t\r\n\u000C] -> skip;
 
-newcommand	: 'new' TYPE ID ('numseats' NUMBER)?;
-addcommand 	: 'add' ID 'to' ID;
-getcommand 	: 'getnumseats' TYPE ID;
-delcommand 	: 'delete' TYPE ID;
-remcommand	: 'remove' ID 'from' ID;
-
-TYPE		: ('Locomotive') | ('wagon') | ('firstclasswagon') | ('secondclasswagon') | ('cargowagon');
-
-ID		: ('a'..'z')('a'..'z'|'0'..'9')*;
-NUMBER		: ('0'..'9')+;
-Ignore :  (' ' | '\t' | '\n' | '\r')+ {skip();};

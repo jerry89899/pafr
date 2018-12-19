@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class LocalDB implements DatabaseConnection {
     private ArrayList<Train> trains = new  ArrayList<Train>();
-   private ArrayList<RollingComponent> rollingComponents = new  ArrayList<RollingComponent>();
+    private ArrayList<RollingComponent> rollingComponents = new  ArrayList<RollingComponent>();
 
     public ArrayList<Train> getAllTrains(){
        return trains;
@@ -38,7 +38,9 @@ public class LocalDB implements DatabaseConnection {
     public void addRollingComponent(RollingComponent rollingComponent){
         rollingComponents.add(rollingComponent);
     }
-
+    public void deleteRollingComponent(RollingComponent rollingComponent){
+        rollingComponents.remove(rollingComponent);
+    }
 
     private Train getTrainById(String id){
         Train found = null;
@@ -49,6 +51,7 @@ public class LocalDB implements DatabaseConnection {
         }
         return found;
     }
+
 
 
 }

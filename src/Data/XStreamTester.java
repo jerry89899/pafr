@@ -66,11 +66,11 @@ public class XStreamTester {
     }
     private ArrayList<Train> getTrain(){
         TrainService ts = new TrainService();
-        ts.NewRollingComponent(RollingComponentType.Locomotive, "Loc1",0);
-        ts.NewRollingComponent(RollingComponentType.FirstClassWagon, "First1",10);
-        ts.NewRollingComponent(RollingComponentType.SecondClassWagon,"Second1");
+        ts.newRollingComponent(RollingComponentType.Locomotive, "Loc1",0);
+        ts.newRollingComponent(RollingComponentType.FirstClassWagon, "First1",10);
+        ts.newRollingComponent(RollingComponentType.SecondClassWagon,"Second1");
         System.out.println(ts.getRollingComponents());
-        ts.NewTrain(ts.getRollingComponents().get(0), "test1");
+        ts.newTrain(ts.getRollingComponents().get(0), "test1");
         ts.getTrains().get(0).addWagon(ts.getRollingComponents().get(2));
         ArrayList<Train> trains = ts.getTrains();
 

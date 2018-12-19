@@ -1,5 +1,5 @@
-// Generated from C:/Users/Tjibbe/Documents/GitHub/richrail/user-interface/src\RichRail.g4 by ANTLR 4.7
-package presentation.parser;
+package main.antlr4;// Generated from RichRail.g4 by ANTLR 4.7.1
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -34,6 +34,30 @@ public class RichRailBaseListener implements RichRailListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNewcommand(RichRailParser.NewcommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNewtraincommand(RichRailParser.NewtraincommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNewtraincommand(RichRailParser.NewtraincommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNewwagoncommand(RichRailParser.NewwagoncommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNewwagoncommand(RichRailParser.NewwagoncommandContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -82,6 +106,30 @@ public class RichRailBaseListener implements RichRailListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRemcommand(RichRailParser.RemcommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterType(RichRailParser.TypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitType(RichRailParser.TypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeletetype(RichRailParser.DeletetypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeletetype(RichRailParser.DeletetypeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

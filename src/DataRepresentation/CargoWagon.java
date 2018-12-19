@@ -1,6 +1,6 @@
 package DataRepresentation;
 
-public class CargoWagon extends RollingComponent{
+public class CargoWagon extends RollingComponent {
 
     CargoWagon(String id, int seats){
         super(RollingComponentType.CargoWagon);

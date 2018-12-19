@@ -1,6 +1,6 @@
 package DataRepresentation;
 
-public class SecondClassWagon extends RollingComponent{
+public class SecondClassWagon extends RollingComponent {
     private String id;
     private int seats;
 

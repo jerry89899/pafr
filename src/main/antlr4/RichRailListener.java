@@ -1,5 +1,4 @@
-// Generated from C:/Users/Tjibbe/Documents/GitHub/richrail/user-interface/src\RichRail.g4 by ANTLR 4.7
-package presentation.parser;
+package main.antlr4;// Generated from RichRail.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -27,6 +26,26 @@ public interface RichRailListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNewcommand(RichRailParser.NewcommandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RichRailParser#newtraincommand}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewtraincommand(RichRailParser.NewtraincommandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RichRailParser#newtraincommand}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewtraincommand(RichRailParser.NewtraincommandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RichRailParser#newwagoncommand}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewwagoncommand(RichRailParser.NewwagoncommandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RichRailParser#newwagoncommand}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewwagoncommand(RichRailParser.NewwagoncommandContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link RichRailParser#addcommand}.
 	 * @param ctx the parse tree
@@ -67,4 +86,24 @@ public interface RichRailListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitRemcommand(RichRailParser.RemcommandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RichRailParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void enterType(RichRailParser.TypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RichRailParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void exitType(RichRailParser.TypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link RichRailParser#deletetype}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeletetype(RichRailParser.DeletetypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RichRailParser#deletetype}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeletetype(RichRailParser.DeletetypeContext ctx);
 }
