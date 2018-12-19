@@ -9,12 +9,20 @@ import main.antlr4.RichRailBaseListener;
 import main.antlr4.RichRailParser;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class RichRailCli extends RichRailBaseListener {
-    // Override methods as desired...
-    TrainServiceInterface ts = new TrainService();
-    private ArrayList<Train> trains = ts.getTrains();
-    private ArrayList<RollingComponent> rollingComponents = ts.getRollingComponents();
+public class RichRailCli extends RichRailBaseListener implements Observer {
+
+    private TrainServiceInterface ts;
+    private ArrayList<Train> trains;
+    private ArrayList<RollingComponent> rollingComponents;
+
+    public RichRailCli(TrainService ts){
+        this.ts = ts;
+        this.trains = ts.getTrains();
+        this.rollingComponents = ts.getRollingComponents();
+    }
 
     @Override
     public void enterCommand(RichRailParser.CommandContext ctx) {
@@ -115,4 +123,12 @@ public class RichRailCli extends RichRailBaseListener {
         return out;
 
     }
+
+    @Override
+    public void update(Observable observable, Object arg){
+        trains = ts.getTrains();
+        rollingComponents = ts.getRollingComponents();
+        System.out.println("updated");
+    }
+
 }

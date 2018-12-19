@@ -1,6 +1,7 @@
 package main;
 
 
+import Application.TrainService;
 import main.antlr4.RichRailLexer;
 import main.antlr4.RichRailListener;
 import main.antlr4.RichRailParser;
@@ -18,9 +19,13 @@ public class TestAntler {
        test(CharStreams.fromString("new locomotive loc1"));
        test(CharStreams.fromString("new train tr1 with loc1"));
 
-
     }
     private static void test(CharStream lineStream){
+        TrainService ts = new TrainService();
+        RichRailCli observer = new RichRailCli(ts);// moet de front end opstarten
+        ts.addObserver(observer);
+
+
         // Tokenize / Lexical analysis
         Lexer lexer = new RichRailLexer(lineStream);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -31,7 +36,7 @@ public class TestAntler {
 
         // Create ParseTreeWalker and Custom Listener
         ParseTreeWalker walker = new ParseTreeWalker();
-        RichRailListener listener = new RichRailCli();
+        RichRailListener listener = observer;
 
         // Walk over ParseTree using Custom Listener that listens to enter/exit events
         walker.walk(listener, tree);

@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class Launch extends Application{
+public class Launch  extends Application  {
 
 
 

@@ -5,14 +5,17 @@ import Data.LocalDB;
 import DataRepresentation.*;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 
-public class TrainService implements TrainServiceInterface {
+public class TrainService extends Observable implements TrainServiceInterface {
 
 
 
     //create database connection
     DatabaseConnection dbc = new LocalDB();
+
+
 
      public void newTrain(RollingComponent locomotive, String id){//
          ArrayList<Train> trains= dbc.getAllTrains();
@@ -24,6 +27,8 @@ public class TrainService implements TrainServiceInterface {
         if (locomotive  instanceof Locomotive) {
             Train t = new Train(id, locomotive);
             dbc.addTrain(t);
+            setChanged();
+            notifyObservers();
 
         }else{
 //            throw new IllegalArgumentException("train has to be created with a locomotive");
@@ -43,10 +48,14 @@ public class TrainService implements TrainServiceInterface {
         }
         RollingComponent r =  RollingComponentFactory.buildRC(type,id,seats);
         dbc.addRollingComponent(r);
+        setChanged();
+        notifyObservers();
     }
     public void newRollingComponent(RollingComponentType type, String name){
         RollingComponent r =  RollingComponentFactory.buildRC(type,name);
         dbc.addRollingComponent(r);
+        setChanged();
+        notifyObservers();
     }
     public void addRollingComponentToTrain(Train train, RollingComponent rollingComponent) {
         //check dat het geen locomotief is
@@ -56,6 +65,8 @@ public class TrainService implements TrainServiceInterface {
         } else {
             train.addWagon(rollingComponent);
             dbc.saveTrain(train);
+            setChanged();
+            notifyObservers();
 
         }
 
@@ -68,7 +79,8 @@ public class TrainService implements TrainServiceInterface {
         } else {
             train.removeWagon(rollingComponent);
             dbc.saveTrain(train);
-
+            setChanged();
+            notifyObservers();
         }
     }
     public void deleteRollingComponent(RollingComponent rollingComponent){
@@ -79,7 +91,8 @@ public class TrainService implements TrainServiceInterface {
              }
          }
          deleteRollingComponent(rollingComponent);
-
+         setChanged();
+         notifyObservers();
     }
     public ArrayList<Train> getTrains(){
         return dbc.getAllTrains();
@@ -87,11 +100,6 @@ public class TrainService implements TrainServiceInterface {
     public ArrayList<RollingComponent> getRollingComponents(){
         return dbc.getAllRollingComponents();
     }
-
-
-
-
-
 
 
 

@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="pafr" target="8" />
+      <module name="pafr" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
