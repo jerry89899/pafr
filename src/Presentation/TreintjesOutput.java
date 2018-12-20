@@ -21,7 +21,7 @@ public class TreintjesOutput extends VBox {
     private Map<String, Double> motorYPositions = new HashMap<>(); // sla alle aangemaakte motors op met Y positie, zodat ze onder elkaar kunnen worden geplaatst.
     public TreintjesOutput(){
         fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/treintjes.fxml"));
+                "treintjes.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

@@ -1,4 +1,4 @@
-package main;
+package Presentation;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +14,10 @@ public class Launch  extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("../Presentation/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Rich rail");
         primaryStage.setScene(new Scene(root, 640, 600));
-        primaryStage.getScene().getStylesheets().add("/Presentation/bootstrap.css");
+        primaryStage.getScene().getStylesheets().add("bootstrap.css");
         primaryStage.show();
 
     }

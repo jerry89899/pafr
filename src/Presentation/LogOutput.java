@@ -15,7 +15,7 @@ public class LogOutput extends VBox implements Output {
     FXMLLoader fxmlLoader;
     public LogOutput(){
         fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/log_output.fxml"));
+                "log_output.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
