@@ -1,7 +1,4 @@
-package presentation;
-
-import Application.TrainService;
-import DataRepresentation.RollingComponent;
+package Presentation;
 
 public interface Output {
 //

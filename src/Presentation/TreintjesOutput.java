@@ -1,12 +1,10 @@
-package presentation;
+package Presentation;
 
 //import domain.Motor;
 //import domain.Pullable;
 //import domain.Vehicle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -23,7 +21,7 @@ public class TreintjesOutput extends VBox {
     private Map<String, Double> motorYPositions = new HashMap<>(); // sla alle aangemaakte motors op met Y positie, zodat ze onder elkaar kunnen worden geplaatst.
     public TreintjesOutput(){
         fxmlLoader = new FXMLLoader(getClass().getResource(
-                "../presentation/treintjes.fxml"));
+                "/treintjes.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

@@ -1,15 +1,11 @@
-package presentation;
+package Presentation;
 
 //import domain.Motor;
 //import domain.Pullable;
 //import domain.Vehicle;
-import Application.TrainService;
-import DataRepresentation.RollingComponent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
@@ -19,7 +15,7 @@ public class LogOutput extends VBox implements Output {
     FXMLLoader fxmlLoader;
     public LogOutput(){
         fxmlLoader = new FXMLLoader(getClass().getResource(
-                "../presentation/log_output.fxml"));
+                "/log_output.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

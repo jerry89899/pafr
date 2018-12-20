@@ -1,25 +1,4 @@
-package presentation;
-
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
-
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+package Presentation;
 
 
 public class InputController{// implements Initializable {
@@ -104,7 +83,7 @@ public class InputController{// implements Initializable {
 //
 //    @FXML
 //    private void openTrain (final ActionEvent event) throws Exception{
-//            Parent root = FXMLLoader.load(getClass().getResource("../presentation/dock.fxml"));
+//            Parent root = FXMLLoader.load(getClass().getResource("../Presentation/dock.fxml"));
 //            Stage secondaryStage = new Stage();
 //
 //            secondaryStage.setTitle("Trains");

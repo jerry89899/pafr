@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
-<?import presentation.LogOutput?>
-<?import presentation.TreintjesOutput?>
-<VBox prefHeight="602.0" prefWidth="640.0" fx:controller="presentation.InputController" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import Presentation.LogOutput?>
+<?import Presentation.TreintjesOutput?>
+<VBox prefHeight="602.0" prefWidth="640.0" fx:controller="Presentation.InputController" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <MenuBar VBox.vgrow="NEVER">
         <menus>
             <Menu mnemonicParsing="false" text="File">
                 <items>
-                    <MenuItem mnemonicParsing="false" onAction="#openTrain" text="Open trains" />
+                    <MenuItem mnemonicParsing="false"  text="Open trains" />
                 </items>
             </Menu>
         </menus>
@@ -43,7 +43,7 @@
                     <children>
                         <Label text="Command" />
                         <TextField fx:id="commandoInput" id="commandoInput" prefHeight="26.0" prefWidth="193.0" />
-                        <Button onAction="#onRunClick" mnemonicParsing="false" text="Execute" />
+                        <Button  mnemonicParsing="false" text="Execute" />
                     </children>
                 </HBox>
             </children>
