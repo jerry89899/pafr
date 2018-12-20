@@ -23,7 +23,7 @@ package Data;
 
 public class XStreamTester {
 
-    public void SaveToXml(Train train) {
+    public static void SaveToXml(Train train) {
         XStreamTester tester = new XStreamTester();
         XStream xstream = new XStream(new StaxDriver());
         //Object to XML Conversion
@@ -43,7 +43,7 @@ public class XStreamTester {
         }
     }
 
-    public void XmlToObject() throws IOException{
+    public static void XmlToObject() throws IOException{
         XStream xstream = new XStream(new StaxDriver());
         //XML to Object Conversion
 
