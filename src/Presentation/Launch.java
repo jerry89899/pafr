@@ -1,5 +1,6 @@
 package Presentation;
 
+import Data.XStreamTester;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +20,7 @@ public class Launch  extends Application  {
         primaryStage.setScene(new Scene(root, 640, 600));
         primaryStage.getScene().getStylesheets().add("bootstrap.css");
         primaryStage.show();
-
+        XStreamTester.XmlToObject();
     }
 
 
