@@ -6,10 +6,12 @@ import java.util.List;
 public class Train {
 
     private String id;
+    private RollingComponent locomotive;
     private List<RollingComponent> rollingComponents;
 
     public Train(String id, RollingComponent locomotive){ // als je loco wilt verwijderen dan word de trein verwijderd.
         this.id = id;
+        this.locomotive = locomotive;
         rollingComponents = new ArrayList<RollingComponent>();
         rollingComponents.add(locomotive);
     }
@@ -34,6 +36,9 @@ public class Train {
             seats = seats + rc.getSeats();
         }
         return seats;
+    }
+    public RollingComponent getLocomotive(){
+        return locomotive;
     }
 }
 
