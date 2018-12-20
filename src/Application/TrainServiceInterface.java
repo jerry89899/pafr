@@ -8,19 +8,19 @@ import java.util.ArrayList;
 
 public interface TrainServiceInterface {
 
-    void newTrain(RollingComponent rollingComponent, String id);
+    boolean newTrain(RollingComponent rollingComponent, String id);
 
     void deleteTrain(Train id);
 
-    void newRollingComponent(RollingComponentType type, String id, int seats);
+    boolean newRollingComponent(RollingComponentType type, String id, int seats);
 
-    void newRollingComponent(RollingComponentType type, String id);
+    boolean newRollingComponent(RollingComponentType type, String id);
 
-    void addRollingComponentToTrain(Train train, RollingComponent rollingComponent);
+    boolean addRollingComponentToTrain(Train train, RollingComponent rollingComponent);
 
-    void deleteRollingComponentFromTrain(Train train, RollingComponent rollingComponent);
+    boolean deleteRollingComponentFromTrain(Train train, RollingComponent rollingComponent);
 
-    void deleteRollingComponent(RollingComponent rollingComponent);
+    boolean deleteRollingComponent(RollingComponent rollingComponent);
     ArrayList<Train> getTrains();
 
     ArrayList<RollingComponent> getRollingComponents();

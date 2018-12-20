@@ -24,31 +24,26 @@ public class RichRailCli extends RichRailBaseListener implements Observer {
         this.rollingComponents = ts.getRollingComponents();
     }
 
-    @Override
-    public void enterCommand(RichRailParser.CommandContext ctx) {
-        System.out.println("Command entered " + ctx.getText());
+//    @Override
+//    public void enterCommand(RichRailParser.CommandContext ctx) {
+//        System.out.println("Command entered " + ctx.getText());
+//    }
 
-    }
-
-    @Override public void enterNewcommand(RichRailParser.NewcommandContext ctx)
-    {
-        System.out.println("Now creating new train " + ctx.getText());
-    }
 
     @Override
     public void enterNewtraincommand(RichRailParser.NewtraincommandContext ctx)  {
         String trainid = ctx.ID(0).getText();
         String locomotiefid = ctx.ID(1).getText();
-        ts.newTrain(getRollingComponentByID(locomotiefid),trainid);
-            //succes
+        if (ts.newTrain(getRollingComponentByID(locomotiefid),trainid) == true) {
+            System.out.println("new train " + ctx.ID(0).getText() + " created with locomotive" + ctx.ID(1).getText());
+        }else {
+            System.out.println("this train allready exists or you tried to create a train without a locomotive");
+        }
 
     }
 
     @Override
     public void enterNewwagoncommand(RichRailParser.NewwagoncommandContext ctx) {
-       // ('locomotive') | ('firstclasswagon') | ('secondclasswagon') | ('cargowagon');
-        System.out.println(ctx.type().getText());
-
         RollingComponentType type = null;
         switch (ctx.type().getText()){
             case "locomotive": type = RollingComponentType.Locomotive;
@@ -62,26 +57,44 @@ public class RichRailCli extends RichRailBaseListener implements Observer {
         }
 
         if(ctx.NUMBER() == null){
-            ts.newRollingComponent(type, ctx.ID().getText());
+            if (ts.newRollingComponent(type, ctx.ID().getText()) == true){
+                System.out.println("new " + ctx.type().getText() + " " + ctx.ID().getText()+ " created");
+            }else {
+                System.out.println("a rolling component allready exists with this id");
+            }
         }else{
-            ts.newRollingComponent(type, ctx.ID().getText(), Integer.parseInt(ctx.NUMBER().toString()));
+            if (ts.newRollingComponent(type, ctx.ID().getText(), Integer.parseInt(ctx.NUMBER().toString())) == true){
+            System.out.println("new " + ctx.type().getText() + " " + ctx.ID().getText()+ " with " + ctx.NUMBER().toString() + " seats is created");
+            }else {
+                System.out.println("a rolling component allready exists with this id");
+            }
         }
+
     }
 
 
     @Override
     public void enterAddcommand(RichRailParser.AddcommandContext ctx) {
-        String trainid = ctx.ID(0).getText();
-        String rollingcomponentid = ctx.ID(1).getText();
-        ts.addRollingComponentToTrain(getTrainByID(trainid),getRollingComponentByID(rollingcomponentid));
+        String trainid = ctx.ID(1).getText();
+        String rollingcomponentid = ctx.ID(0).getText();
+        if(ts.addRollingComponentToTrain(getTrainByID(trainid),getRollingComponentByID(rollingcomponentid)) == true){
+            System.out.println("wagon " + ctx.ID(0).getText() + " added to train " + ctx.ID(1).getText());
+        }else{
+            System.out.println("a train can only have one locomotive please add a different type of wagon");
+        }
     }
 
     @Override public void enterDelcommand(RichRailParser.DelcommandContext ctx) {
         ctx.deletetype().getText();
         if (ctx.deletetype().getText().equals("train")) {
             ts.deleteTrain(getTrainByID(ctx.ID().getText()));
+            System.out.println("train " + ctx.ID().getText() + " deleted");
         }else{
-            ts.deleteRollingComponent(getRollingComponentByID(ctx.ID().getText()));
+            if(ts.deleteRollingComponent(getRollingComponentByID(ctx.ID().getText())) == true) {
+                System.out.println("wagon " + ctx.ID().getText() + " deleted");
+            }else{
+                System.out.println("this rolling component is used by one or more trains so it cant be deleted");
+            }
         }
     }
 
@@ -96,9 +109,13 @@ public class RichRailCli extends RichRailBaseListener implements Observer {
 
     @Override
     public void enterRemcommand(RichRailParser.RemcommandContext ctx) {
-        String trainid = ctx.ID(0).getText();
-        String rollingcomponentid = ctx.ID(1).getText();
-        ts.deleteRollingComponentFromTrain(getTrainByID(trainid),getRollingComponentByID(rollingcomponentid));
+        String trainid = ctx.ID(1).getText();
+        String rollingcomponentid = ctx.ID(0).getText();
+        if(ts.deleteRollingComponentFromTrain(getTrainByID(trainid),getRollingComponentByID(rollingcomponentid)) == true){
+            System.out.println("wagon "+ctx.ID(0).getText() +" deleted from train "+ctx.ID(1).getText());
+        }else{
+        System.out.println("you tried to remove a locomotive or a wagon that this train does not have");
+        }
     }
 
     private RollingComponent getRollingComponentByID(String id){

@@ -17,11 +17,11 @@ public class TrainService extends Observable implements TrainServiceInterface {
 
 
 
-     public void newTrain(RollingComponent locomotive, String id){//
+     public boolean newTrain(RollingComponent locomotive, String id){//
          ArrayList<Train> trains= dbc.getAllTrains();
          for(Train t: trains){
              if(t.getId().equals(id)){
-//                 throw new IllegalArgumentException("name allready used by a train");
+                 return false;
              }
          }
         if (locomotive  instanceof Locomotive) {
@@ -29,70 +29,79 @@ public class TrainService extends Observable implements TrainServiceInterface {
             dbc.addTrain(t);
             setChanged();
             notifyObservers();
+            return true;
 
         }else{
-//            throw new IllegalArgumentException("train has to be created with a locomotive");
+            return false;
         }
     }
     public void deleteTrain(Train train){
         dbc.deleteTrain(train);
     }
 
-    public void newRollingComponent(RollingComponentType type, String id, int seats){
+    public boolean newRollingComponent(RollingComponentType type, String id, int seats){
         ArrayList<RollingComponent> rollingComponents = dbc.getAllRollingComponents();
         for(RollingComponent r: rollingComponents){
             if(r.getId().equals(id)){
 //                throw new IllegalArgumentException("name allready used by a rolling component");
-
+                    return false;
             }
         }
         RollingComponent r =  RollingComponentFactory.buildRC(type,id,seats);
         dbc.addRollingComponent(r);
         setChanged();
         notifyObservers();
+        return true;
     }
-    public void newRollingComponent(RollingComponentType type, String name){
-        RollingComponent r =  RollingComponentFactory.buildRC(type,name);
+    public boolean newRollingComponent(RollingComponentType type, String id){
+        for(RollingComponent rc: dbc.getAllRollingComponents()){
+            if (rc.getId().equals(id)){
+                return false;
+            }
+        }
+        RollingComponent r =  RollingComponentFactory.buildRC(type,id);
         dbc.addRollingComponent(r);
         setChanged();
         notifyObservers();
+        return true;
     }
-    public void addRollingComponentToTrain(Train train, RollingComponent rollingComponent) {
+    public boolean addRollingComponentToTrain(Train train, RollingComponent rollingComponent) {
         //check dat het geen locomotief is
         if (rollingComponent instanceof Locomotive) {
-            //error
+            return  false;
 //            throw new IllegalArgumentException("can not add locomotive to train");
         } else {
             train.addWagon(rollingComponent);
             dbc.saveTrain(train);
             setChanged();
             notifyObservers();
-
+            return true;
         }
 
     }
-    public void deleteRollingComponentFromTrain(Train train, RollingComponent rollingComponent) {
-
+    public boolean deleteRollingComponentFromTrain(Train train, RollingComponent rollingComponent) {
          if (rollingComponent instanceof Locomotive) {
-            //error
+            return false;
 //            throw new IllegalArgumentException("can not delete locomotive of train");
         } else {
             train.removeWagon(rollingComponent);
             dbc.saveTrain(train);
             setChanged();
             notifyObservers();
+            return true;
         }
     }
-    public void deleteRollingComponent(RollingComponent rollingComponent){
+    public boolean deleteRollingComponent(RollingComponent rollingComponent){
          for(Train t:dbc.getAllTrains()){
              if(t.getRollingComponents().contains(rollingComponent)){
 //                 throw new IllegalArgumentException("Can not delete rollingcomponent because it is in use");
-
+                 return false;
              }
          }
          deleteRollingComponent(rollingComponent);
          setChanged();
          notifyObservers();
+         return true;
     }
     public ArrayList<Train> getTrains(){
         return dbc.getAllTrains();

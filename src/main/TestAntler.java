@@ -13,17 +13,45 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import parser.RichRailCli;
 
+import java.util.Scanner;
+
 
 public class TestAntler {
     public static void main(String[] args) {
-       test(CharStreams.fromString("new locomotive loc1"));
-       test(CharStreams.fromString("new train tr1 with loc1"));
-
-    }
-    private static void test(CharStream lineStream){
         TrainService ts = new TrainService();
         RichRailCli observer = new RichRailCli(ts);// moet de front end opstarten
         ts.addObserver(observer);
+
+        executeCommand(CharStreams.fromString("new firstclasswagon fc1"),observer);
+        executeCommand(CharStreams.fromString("new secondclasswagon sc1"),observer);
+        executeCommand(CharStreams.fromString("new cargowagon cw1 20"),observer);
+        executeCommand(CharStreams.fromString("new locomotive loc1 10"),observer);
+
+        // create a scanner so we can read the command-line input
+        Scanner scanner = new Scanner(System.in);
+
+        while(true) {
+
+
+            try
+            {
+                System.out.print("Enter Command: ");
+                String input = scanner.nextLine();
+                input = input.toLowerCase();
+                System.out.println(input);
+                executeCommand(CharStreams.fromString(input),observer);
+
+            }
+            catch (java.lang.NullPointerException exception) {
+                System.out.println(exception.getMessage());
+            }
+
+        }
+
+
+    }
+    private static void executeCommand(CharStream lineStream, RichRailCli observer){
+
 
 
         // Tokenize / Lexical analysis
