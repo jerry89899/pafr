@@ -20,22 +20,23 @@ package Data;
         import org.xml.sax.InputSource;
         import com.thoughtworks.xstream.XStream;
         import com.thoughtworks.xstream.io.xml.StaxDriver;
+import java.nio.file.Paths;
 
 public class XStreamTester {
-
+    private static String path;
     public static void SaveToXml(Train train) {
         XStreamTester tester = new XStreamTester();
         XStream xstream = new XStream(new StaxDriver());
         //Object to XML Conversion
 
-        try (PrintWriter out = new PrintWriter("..\\Locomotives.xml")) {
+        try (PrintWriter out = new PrintWriter("Data/Locomotives.xml")) {
             String xml = xstream.toXML(train.getLocomotive());
             out.println((formatXml(xml)));
 
         } catch (IOException ex) {
             System.err.println("file not found");
         }
-        try (PrintWriter outt = new PrintWriter("..\\Wagons.xml")) {
+        try (PrintWriter outt = new PrintWriter("Data/Wagons.xml")) {
             String xmll = xstream.toXML(train.getRollingComponents());
             outt.println((formatXml(xmll)));
         } catch (IOException ex) {
@@ -46,8 +47,9 @@ public class XStreamTester {
     public static void XmlToObject() throws IOException{
         XStream xstream = new XStream(new StaxDriver());
         //XML to Object Conversion
-
-        byte[] encoded = Files.readAllBytes(Paths.get("..\\Locomotives.xml"));
+        path = Paths.get(".").toAbsolutePath().normalize().toString()+"/src/Data/Locomotives.xml";
+        System.out.println(path);
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
         String xml =  new String(encoded, StandardCharsets.UTF_8 );
 
         //XML to Object Conversion
