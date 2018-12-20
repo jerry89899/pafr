@@ -13,7 +13,9 @@ package Data;
         import javax.xml.transform.stream.StreamResult;
 
         import Application.TrainService;
+        import DataRepresentation.Locomotive;
         import DataRepresentation.RollingComponentType;
+        import DataRepresentation.SecondClassWagon;
         import DataRepresentation.Train;
         import org.xml.sax.InputSource;
         import com.thoughtworks.xstream.XStream;
@@ -21,14 +23,21 @@ package Data;
 
 public class XStreamTester {
 
-    public void SaveToXml(ArrayList<Train> train) {
+    public void SaveToXml(Train train) {
         XStreamTester tester = new XStreamTester();
         XStream xstream = new XStream(new StaxDriver());
         //Object to XML Conversion
 
-        try (PrintWriter out = new PrintWriter("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\XStream.xml")) {
-            String xml = xstream.toXML(train);
+        try (PrintWriter out = new PrintWriter("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Locomotives.xml")) {
+            String xml = xstream.toXML(train.getLocomotive());
             out.println((formatXml(xml)));
+
+    } catch (IOException ex) {
+        System.err.println("file not found");
+    }
+            try (PrintWriter outt = new PrintWriter("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Wagons.xml")) {
+                String xmll = xstream.toXML(train.getRollingComponents());
+                outt.println((formatXml(xmll)));
         } catch (IOException ex) {
             System.err.println("file not found");
         }
@@ -37,12 +46,22 @@ public class XStreamTester {
         public void XmlToObject() throws IOException{
         XStream xstream = new XStream(new StaxDriver());
         //XML to Object Conversion
-            byte[] encoded = Files.readAllBytes(Paths.get("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\XStream.xml"));
+            byte[] encoded = Files.readAllBytes(Paths.get("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Locomotives.xml"));
             String xml =  new String(encoded, StandardCharsets.UTF_8 );
 
             //XML to Object Conversion
 
-            Train train = (Train)xstream.fromXML(xml);
+            Locomotive locomotive = (Locomotive) xstream.fromXML(xml);
+
+            byte[] encod = Files.readAllBytes(Paths.get("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Wagons.xml"));
+            String wg =  new String(encod, StandardCharsets.UTF_8 );
+
+            //XML to Object Conversion
+
+            SecondClassWagon wagon = (SecondClassWagon) xstream.fromXML(wg);
+
+            new Train("savedtrain", locomotive);
+
     }
 
     public static String formatXml(String xml){
