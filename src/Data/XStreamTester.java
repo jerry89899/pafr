@@ -28,39 +28,41 @@ public class XStreamTester {
         XStream xstream = new XStream(new StaxDriver());
         //Object to XML Conversion
 
-        try (PrintWriter out = new PrintWriter("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Locomotives.xml")) {
+        try (PrintWriter out = new PrintWriter("..\\Locomotives.xml")) {
             String xml = xstream.toXML(train.getLocomotive());
             out.println((formatXml(xml)));
 
-    } catch (IOException ex) {
-        System.err.println("file not found");
-    }
-            try (PrintWriter outt = new PrintWriter("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Wagons.xml")) {
-                String xmll = xstream.toXML(train.getRollingComponents());
-                outt.println((formatXml(xmll)));
+        } catch (IOException ex) {
+            System.err.println("file not found");
+        }
+        try (PrintWriter outt = new PrintWriter("..\\Wagons.xml")) {
+            String xmll = xstream.toXML(train.getRollingComponents());
+            outt.println((formatXml(xmll)));
         } catch (IOException ex) {
             System.err.println("file not found");
         }
     }
 
-        public void XmlToObject() throws IOException{
+    public void XmlToObject() throws IOException{
         XStream xstream = new XStream(new StaxDriver());
         //XML to Object Conversion
-            byte[] encoded = Files.readAllBytes(Paths.get("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Locomotives.xml"));
-            String xml =  new String(encoded, StandardCharsets.UTF_8 );
 
-            //XML to Object Conversion
+        byte[] encoded = Files.readAllBytes(Paths.get("..\\Locomotives.xml"));
+        String xml =  new String(encoded, StandardCharsets.UTF_8 );
 
-            Locomotive locomotive = (Locomotive) xstream.fromXML(xml);
+        //XML to Object Conversion
 
-            byte[] encod = Files.readAllBytes(Paths.get("C:\\Users\\guyli\\OneDrive\\Documenten\\SCHOOL\\PAFR\\OOAD\\src\\Data\\Wagons.xml"));
-            String wg =  new String(encod, StandardCharsets.UTF_8 );
+        Locomotive locomotive = (Locomotive) xstream.fromXML(xml);
 
-            //XML to Object Conversion
+//        byte[] encod = Files.readAllBytes(Paths.get("..\\Wagons.xml"));
+//        String wg =  new String(encod, StandardCharsets.UTF_8 );
+//
+//        //XML to Object Conversion
+//
+//        SecondClassWagon wagon = (SecondClassWagon) xstream.fromXML(wg);
 
-            SecondClassWagon wagon = (SecondClassWagon) xstream.fromXML(wg);
-
-            new Train("savedtrain", locomotive);
+        Train tr = new Train("savedtrain", locomotive);
+        System.out.println(tr);
 
     }
 
