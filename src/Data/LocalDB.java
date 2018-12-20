@@ -16,11 +16,13 @@ public class LocalDB implements DatabaseConnection {
 
     public void addTrain(Train train){
         trains.add(train);
+        XStreamTester.SaveToXml(train);
 
     }
 
     public void deleteTrain(Train train){
        trains.remove(train);
+        XStreamTester.SaveToXml(train);
 
    }
 
@@ -28,6 +30,7 @@ public class LocalDB implements DatabaseConnection {
         String id = train.getId();
         deleteTrain(getTrainById(id));
         trains.add(train);
+        XStreamTester.SaveToXml(train);
 
    }
 
@@ -37,6 +40,7 @@ public class LocalDB implements DatabaseConnection {
 
     public void addRollingComponent(RollingComponent rollingComponent){
         rollingComponents.add(rollingComponent);
+
     }
     public void deleteRollingComponent(RollingComponent rollingComponent){
         rollingComponents.remove(rollingComponent);
